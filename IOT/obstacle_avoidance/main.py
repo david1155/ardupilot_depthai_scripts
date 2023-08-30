@@ -15,7 +15,7 @@ with dai.Device(create_pipeline(), usb2Mode=False) as device:
 
     while True:
         inSpatialDatas = spatialQueue.tryGet()
-        if (inSpatialDatas == None):
+        if inSpatialDatas is None:
             continue
         spatialDatas = inSpatialDatas.getSpatialLocations()
         depthFrame = depthQueue.get().getFrame()
